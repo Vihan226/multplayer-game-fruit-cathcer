@@ -31,7 +31,6 @@ function setup() {
 button=createButton('s')
 
 
-
 score=0
 buttonhaspressed=0
 gamerefresh=1000
@@ -48,7 +47,7 @@ function draw() {
   })
 
   if(games==='play'){
-    
+   
     textSize(50)
     text('Coins: '+score, width/1.6-width/2, height/2-100)
     
@@ -57,9 +56,12 @@ function draw() {
       game.update(1);
       
     }
+    
+
+ 
     if (gameState === 1) {
       clear(); 
-  
+      background('black')
       game.play();
 
       if(player.amount>4&&player.amount<6){

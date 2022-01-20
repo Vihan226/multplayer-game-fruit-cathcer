@@ -39,11 +39,13 @@ this.reset.hide()
             player.index = playerCount;
             player.update();
             player.updateCount(playerCount);
-            this.greeting.html("Hello " + player.name)
-            this.greeting.position(width/1.4-width/2, height/2-100);
+            this.greeting.html("Hey " + player.name + " we are finding a player for the game...")
+            this.greeting.position(width/1.3-width/2, height/2-100);
             this.greeting.style('color', 'white');
-            this.greeting.style('font-size', '40px');
+            this.greeting.style('font-size', '30px');
         });
+
+      
 
         this.reset.mousePressed(() => {
             player.updateCount(0);
