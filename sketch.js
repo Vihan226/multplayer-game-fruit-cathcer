@@ -81,6 +81,8 @@ function draw() {
         player.updateCount(0);
         game.update(0);
         gamerefresh=1000
+
+        alert('Your score was '+ player.amount)
       }
 
       
