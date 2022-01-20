@@ -26,10 +26,12 @@ class Game{
                 form = new Form()
                 form.display();
             }
-    player1 = createSprite(200,500);
+
+            createCanvas(windowWidth, windowHeight)
+    player1 = createSprite(width/1.5-width/2, height/2+200);
     player1.addImage("player1",player_img);
     
-    player2 = createSprite(800,500);
+    player2 = createSprite(width/1-width/2, height/2+200);
     player2.addImage("player2", player_img);
     players=[player1,player2];
 
@@ -39,10 +41,17 @@ class Game{
     play(){
         
                 form.hide();
-                textSize(50)
-                text('Coins: '+Coins, width/1.6-width/2, height/2-300)
+                textSize(40)
+                text('Coins: '+score, width/1.6-width/2, height/2-300)
+                textSize(10)
+                fill('red')
+                text('Note-If you are waiting spectating the game, ', width/.8-width/2, height/2-300)
+                text('players have a time limit and once their ', width/.8-width/2, height/2-280)
+                text('time is over you will get a turn to join ', width/.8-width/2, height/2-260)
+                text('Remember to be Fast! ', width/.8-width/2, height/2-240)
+              
                 Player.getPlayerInfo();
-                // image(back_img, 0, 0, 1000, 800);
+                //image(back_img, 0, 0, 1000, 800);
                  var x =100;
                  var y=200;
                  var index =0;
@@ -57,18 +66,18 @@ class Game{
                      players[index -1].x = x;
                      players[index - 1].y = y;
                        
-                     if(index === player.index){
+                    
                          
                          fill("black");
                          textSize(25);
                          text(allPlayers[plr].name ,x-25,y+25);
-                         text(allPlayers[plr].score, x-35, y+45);
+                         text(allPlayers[plr].amount, x-35, y+45);
 
                          
-                     }
+                     
                   
-               if(player.score>4&&player.score<6){
-                   player.score++
+               if(player.amount>4&&player.amount<6){
+                   player.amount++
                }
               
                  
@@ -110,12 +119,12 @@ class Game{
                   if (player.index !== null) {
                      if(player1.isTouching(fruitGroup)) {
                          fruitGroup.destroyEach();
-                         player.score ++;
+                         player.amount ++;
                          player.update();
                      }
                      if(player2.isTouching(fruitGroup)) {
                         fruitGroup.destroyEach();
-                        player.score ++;
+                        player.amount ++;
                         player.update();
                     }
                
@@ -134,6 +143,6 @@ class Game{
     }
 
     scoreincrease(){
-        score=score+5
+        amount=amount+5
     }
 }

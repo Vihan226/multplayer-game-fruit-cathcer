@@ -18,19 +18,19 @@ class Form{
         this.title.position(width/1.3-width/2, height/2-400);
         this.title.style('font-size', '40px');
         this.title.style('color', 'skyblue');
-        this.input.position(550,400);
+        this.input.position(width/1.3-width/2, height/2-100);
         this.input.style('width', '200px');
         this.input.style('height', '20px');
         this.input.style('background', 'lavender');
-        this.button.position(560,500);
+        this.button.position(width/1.3-width/2, height/2+100);
         this.button.style('width', '200px');
         this.button.style('height', '40px');
         this.button.style('background', 'lightpink');
-        this.reset.position(900, 660);
+        this.reset.position(width/1.3-width/2, height/2+300);
         this.reset.style('width', '100px');
         this.reset.style('height', '30px');
         this.reset.style('background', 'lightpink');
-
+this.reset.hide()
         this.button.mousePressed(() => {
             this.input.hide();
             this.button.hide();

@@ -11,7 +11,8 @@ var fruits;
 var fruitGroup;
 var fruit1_img, fruit2_img, fruit3_img, fruit4_img, fruit5_img;
 var player_img;
-var Coins;
+var score, buttonhaspressed;
+var gamerefresh;
 
 function preload(){
   back_img = loadImage("images/jungle.jpg");
@@ -28,14 +29,17 @@ function setup() {
   database = firebase.database();
   game = new Game();
 button=createButton('s')
-  
 
-Coins=0
+
+
+score=0
+buttonhaspressed=0
+gamerefresh=1000
 }
 
 function draw() {
   createCanvas(windowWidth, windowHeight)
-  background(back_img);
+  background('green');
   
   button.mousePressed(()=>{
     games='play'
@@ -46,20 +50,39 @@ function draw() {
   if(games==='play'){
     
     textSize(50)
-    text('Coins: '+Coins, width/1.6-width/2, height/2-100)
+    text('Coins: '+score, width/1.6-width/2, height/2-100)
+    
+
     if (playerCount > 1) {
       game.update(1);
-   
+      
     }
     if (gameState === 1) {
       clear(); 
   
       game.play();
-  
-      if(player.score>4&&player.score<6){
-       Coins=Coins+1
+
+      if(player.amount>4&&player.amount<6){
+        score=score+1
      
+        
       }
+    
+
+  
+
+        gamerefresh=gamerefresh-1
+     
+      
+   
+      if(gamerefresh<1){
+        player.updateCount(0);
+        game.update(0);
+        gamerefresh=1000
+      }
+
+      
+
   
     }
     if (gameState === 2) {
