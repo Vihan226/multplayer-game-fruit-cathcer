@@ -7,8 +7,8 @@ var games=null
 var player, form,game;
 var player1,player2;
 var players;
-var fruits;
-var fruitGroup;
+var fruits, fruits2, fruits3;
+var fruitGroup, fruit2Group, fruit3Group;
 var fruit1_img, fruit2_img, fruit3_img, fruit4_img, fruit5_img;
 var player_img;
 var score, buttonhaspressed;
@@ -22,7 +22,9 @@ function preload(){
   fruit3_img = loadImage("images/melon2.png");
   fruit4_img = loadImage("images/orange2.png");
   fruit5_img = loadImage("images/pineapple2.png");
-  fruitGroup = new Group();
+  fruit2Group = new Group();
+  fruit3Group = new Group();
+  fruitGroup= new Group()
 }
 function setup() {
   createCanvas(1000, 600);
@@ -33,7 +35,7 @@ button=createButton('s')
 
 score=0
 buttonhaspressed=0
-gamerefresh=1000
+gamerefresh=1700
 }
 
 function draw() {
@@ -64,12 +66,6 @@ function draw() {
       background('black')
       game.play();
 
-      if(player.amount>4&&player.amount<6){
-        score=score+1
-     
-        
-      }
-    
 
   
 
@@ -96,4 +92,5 @@ function draw() {
 
 
   }
+
 }

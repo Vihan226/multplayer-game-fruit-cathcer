@@ -24,7 +24,7 @@ class Player {
         database.ref(playerIndex).set({
             name: this.name,
             distance: this.distance,
-            amount:this.amount
+            amount:this.amount 
         });
     }
 

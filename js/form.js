@@ -30,7 +30,7 @@ class Form{
         this.reset.style('width', '100px');
         this.reset.style('height', '30px');
         this.reset.style('background', 'lightpink');
-this.reset.hide()
+this.reset.show()
         this.button.mousePressed(() => {
             this.input.hide();
             this.button.hide();

@@ -44,13 +44,13 @@ class Game{
                 form.hide();
                 textSize(40)
                 text('Coins: '+score, width/1.6-width/2, height/2-300)
-                textSize(20)
+                textSize(18)
                 fill('red')
-                text('Note-If you are waiting, spectating the game, ', width/.8-width/2, height/2-300)
-                text('players have a time limit and once their ', width/.8-width/2, height/2-280)
-                text('time is over you will get a turn to join ', width/.8-width/2, height/2-260)
-                text('DO NOT LEAVE!', width/.8-width/2, height/2-240)
-                text('Remember to be Fast! ', width/.8-width/2, height/2-220)
+                text('Note-If you are waiting, spectating the game, ', width/.9-width/2, height/2-300)
+                text('players have a time limit and once their ', width/.9-width/2, height/2-280)
+                text('time is over you will get a turn to join ', width/.9-width/2, height/2-260)
+                text('DO NOT LEAVE!', width/.9-width/2, height/2-240)
+                text('Remember to be Fast! ', width/.9-width/2, height/2-220)
               
                 Player.getPlayerInfo();
                 //image(back_img, 0, 0, 1000, 800);
@@ -71,7 +71,7 @@ class Game{
                     
                          
                          fill("black");
-                         textSize(25);
+                         textSize(20);
                          text(allPlayers[plr].name ,x-25,y+25);
                          text(allPlayers[plr].amount, x-35, y+45);
 
@@ -101,36 +101,103 @@ class Game{
                  if (frameCount % 20 === 0) {
                      fruits = createSprite(random(100, 1000), 0, 100, 100);
                      fruits.velocityY = 6;
-                     var rand = Math.round(random(1,5));
+                     var rand = Math.round(random(1,2));
                      switch(rand){
-                         case 1: fruits.addImage("fruit1",fruit1_img);
+                         case 1: fruits.addImage("fruit1",fruit5_img);
                          break;
-                         case 2: fruits.addImage("fruit1", fruit2_img);
+                         case 2: fruits.addImage("fruit1", fruit3_img);
                          break;
-                         case 3: fruits.addImage("fruit1", fruit3_img);
-                         break;
-                         case 4: fruits.addImage("fruit1", fruit4_img);
-                         break;
-                         case 5: fruits.addImage("fruit1", fruit5_img);
-                         break;
+                        
                      }
                      fruitGroup.add(fruits);
                      
                  }
+
+                 if (frameCount % 50 === 0) {
+                    fruits2 = createSprite(random(100, 1000), 0, 100, 100);
+                    fruits2.velocityY = 6;
+                    var rand = Math.round(random(1,2));
+                    switch(rand){
+                      
+                        case 1: fruits2.addImage("fruit1", fruit2_img);
+                        break;
+                        case 2: fruits2.addImage("fruit1", fruit4_img);
+                        break;
+                        
+                    }
+                    fruit2Group.add(fruits2);
+                    
+                }
+                if (frameCount % 100 === 0) {
+                    fruits3 = createSprite(random(100, 1000), 0, 100, 100);
+                    fruits3.velocityY = 6;
+                    var rand = Math.round(random(1,1));
+                    switch(rand){
+                      
+                        
+                        case 1: fruits3.addImage("fruit1", fruit1_img);
+                        break;
+                        
+                        
+                    }
+                    fruit3Group.add(fruits3);
+                    
+                }
                  
                   if (player.index !== null) {
                      if(player1.isTouching(fruitGroup)) {
                          fruitGroup.destroyEach();
+                         fruit2Group.destroyEach();
+                         fruit3Group.destroyEach();
                          player.amount ++;
                          player.update();
+                         score=score+1
                      }
+                     if(player1.isTouching(fruit2Group)) {
+                        fruitGroup.destroyEach();
+                        fruit2Group.destroyEach();
+                        fruit3Group.destroyEach();
+                        player.amount= player.amount+5;
+                        player.update();
+                        score=score+10
+                    }
+                    if(player1.isTouching(fruit3Group)) {
+                        fruitGroup.destroyEach();
+                        fruit2Group.destroyEach();
+                        fruit3Group.destroyEach();
+                        player.amount= player.amount+10;
+                        player.update();
+                        score=score+25
+                    }
+
+
+
                      if(player2.isTouching(fruitGroup)) {
                         fruitGroup.destroyEach();
+                        fruit2Group.destroyEach();
+                        fruit3Group.destroyEach();
                         player.amount ++;
                         player.update();
+                        score=score+1
                     }
-               
+                   if(player2.isTouching(fruit2Group)) {
+                    fruitGroup.destroyEach();
+                    fruit2Group.destroyEach();
+                    fruit3Group.destroyEach();
+                        player.amount= player.amount+5;
+                        player.update();
+                        score=score+10
+                    }
+                    if(player2.isTouching(fruit3Group)) {
+                        fruitGroup.destroyEach();
+                        fruit2Group.destroyEach();
+                        fruit3Group.destroyEach();
+                        player.amount= player.amount+10;
+                        player.update();
+                        score=score+25
+                    }
                   }
+
                 
 
          
