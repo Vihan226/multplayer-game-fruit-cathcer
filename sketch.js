@@ -13,7 +13,7 @@ var fruit1_img, fruit2_img, fruit3_img, fruit4_img, fruit5_img;
 var player_img;
 var score, buttonhaspressed;
 var gamerefresh;
-
+var scoreg;
 function preload(){
   back_img = loadImage("images/jungle.jpg");
   player_img = loadImage("images/basket2.png");
@@ -36,6 +36,7 @@ button=createButton('s')
 score=0
 buttonhaspressed=0
 gamerefresh=1700
+scoreg=0
 }
 
 function draw() {
@@ -68,20 +69,69 @@ function draw() {
 
 
   
-
+      if(score>30&&score<65){
+        scoreg=1
+      }
+      if(score>65&&score<150){
+        scoreg=2
+      }
+      if(score>150&&score<240){
+        scoreg=3
+      }
+      if(score>240&&score<2450){
+        scoreg=4
+      }
         gamerefresh=gamerefresh-1
-     
+     if(score==0){
+       scoreg=0
+     }
       
    
-      if(gamerefresh<1){
+
+      if(gamerefresh<1&& scoreg==1){
         player.updateCount(0);
         game.update(0);
         gamerefresh=1000
 
-        alert('Your score was '+ player.amount)
+        alert("Your will receive 40 Coins by; Go to your Sho Run app and unlock the third deck and purchase the multiplayer card. Then type this code in- jycd1")
+     score=0
       }
 
-      
+      if(gamerefresh<1&& scoreg==2){
+        player.updateCount(0);
+        game.update(0);
+        gamerefresh=1000
+
+        alert("Your will receive 80 Coins by; Go to your Sho Run app and unlock the third deck and purchase the multiplayer card. Then type this code in- fydr254")
+     score=0
+      }
+      if(gamerefresh<1&& scoreg==3){
+        player.updateCount(0);
+        game.update(0);
+        gamerefresh=1000
+
+        
+        alert("Your will receive 100 Coins by; Go to your Sho Run app and unlock the third deck and purchase the multiplayer card. Then type this code in- jdr8n4")
+score=0
+      }
+      if(gamerefresh<1&& scoreg==4){
+        player.updateCount(0);
+        game.update(0);
+        gamerefresh=1000
+
+        
+        alert("Your will receive 200 Coins by; Go to your Sho Run app and unlock the third deck and purchase the multiplayer card. Then type this code in- uitm2ty5")
+score=0
+      }
+
+      if(gamerefresh<1&&scoreg==0){
+        player.updateCount(0);
+        game.update(0);
+        gamerefresh=1000
+        score=0
+      }
+
+    
 
   
     }
