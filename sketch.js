@@ -9,7 +9,7 @@ var player1,player2;
 var players;
 var fruits, fruits2, fruits3;
 var fruitGroup, fruit2Group, fruit3Group;
-var fruit1_img, fruit2_img, fruit3_img, fruit4_img, fruit5_img;
+var fruit1_img, fruit2_img, fruit3_img, fruit4_img, fruit5_img, fruit6_img;
 var player_img;
 var score, buttonhaspressed;
 var gamerefresh;
@@ -17,16 +17,21 @@ var scoreg;
 var bullet1, bullet2, touch;
 var player2_img
 var button2;
+var power;
+var bestcard
 function preload(){
   back_img = loadImage("images/jungle.jpg");
   player_img = loadImage("images/redplayer.png");
   player2_img = loadImage("images/blueplayer.png");
-  fruit1_img = loadImage("images/apple2.png");
-  fruit2_img = loadImage("images/banana2.png");
+  fruit1_img = loadImage("usecard16.png");
+  fruit2_img = loadImage("usehealth.png");
   
-  fruit3_img = loadImage("images/melon2.png");
-  fruit4_img = loadImage("images/orange2.png");
-  fruit5_img = loadImage("images/pineapple2.png");
+  fruit3_img = loadImage("Coin.png");
+  bestcard = loadImage("bestcard.png");
+  
+  fruit5_img = loadImage("skin1part3.png");
+
+  fruit6_img = loadImage("skin3part4.png");
   fruit2Group = new Group();
   fruit3Group = new Group();
   fruitGroup= new Group()

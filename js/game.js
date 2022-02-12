@@ -31,10 +31,10 @@ class Game{
            // createCanvas(windowWidth, windowHeight)
     player1 = createSprite(width/1.9-width/2, height/2+500);
     player1.addImage("player1",player_img);
-    player1.scale=.8
+    player1.scale=.9
     player2 = createSprite(width/1-width/2, height/2+400);
     player2.addImage("player2", player2_img);
-    player2.scale=.8
+    player2.scale=.9
     players=[player1,player2];
 
 
@@ -49,11 +49,11 @@ class Game{
                 text('Coins: '+score, width/1.6-width/2, height/2-300)
                 textSize(18)
                 fill('red')
-                text('Note-If you are waiting, spectating the game, ', width/.9-width/2, height/2-300)
-                text('players have a time limit and once their ', width/.9-width/2, height/2-280)
-                text('time is over you will get a turn to join ', width/.9-width/2, height/2-260)
-                text('DO NOT LEAVE!', width/.9-width/2, height/2-240)
-                text('Remember to be Fast! ', width/.9-width/2, height/2-220)
+                text('Note-If you are waiting, spectating the game, ', width/.9-width/2, height/2-400)
+                text('players have a time limit and once their ', width/.9-width/2, height/2-380)
+                text('time is over you will get a turn to join ', width/.9-width/2, height/2-360)
+                text('DO NOT LEAVE!', width/.9-width/2, height/2-340)
+                text('Remember to be Fast! ', width/.9-width/2, height/2-320)
               
                 Player.getPlayerInfo();
                 //image(back_img, 0, 0, 1000, 800);
@@ -66,7 +66,7 @@ class Game{
                     
                      index = index+1;
                      x = 500-allPlayers[plr].distance;
-                     y=700;
+                     y=800;
                      
                      players[index -1].x = x;
                      players[index - 1].y = y;
@@ -101,9 +101,10 @@ class Game{
                     touches=[]
                 }
             
-                 if (frameCount % 20 === 0) {
+                 if (frameCount % 50 === 0) {
                      fruits = createSprite(random(100, 1000), 0, 100, 100);
                      fruits.velocityY = 6;
+                     fruits.scale=.8
                      var rand = Math.round(random(1,2));
                      switch(rand){
                          case 1: fruits.addImage("fruit1",fruit5_img);
@@ -116,29 +117,35 @@ class Game{
                      
                  }
 
-                 if (frameCount % 50 === 0) {
+                 if (frameCount % 80 === 0) {
                     fruits2 = createSprite(random(100, 1000), 0, 100, 100);
                     fruits2.velocityY = 6;
+                    fruits2.scale=.8
                     var rand = Math.round(random(1,2));
                     switch(rand){
                       
                         case 1: fruits2.addImage("fruit1", fruit2_img);
                         break;
-                        case 2: fruits2.addImage("fruit1", fruit4_img);
+                        case 2: fruits2.addImage("fruit3", fruit1_img);
                         break;
+                      
                         
                     }
                     fruit2Group.add(fruits2);
                     
                 }
-                if (frameCount % 100 === 0) {
+                if (frameCount % 140 === 0) {
                     fruits3 = createSprite(random(100, 1000), 0, 100, 100);
                     fruits3.velocityY = 6;
+                    fruits3.scale=.6
                     var rand = Math.round(random(1,1));
                     switch(rand){
                       
                         
-                        case 1: fruits3.addImage("fruit1", fruit1_img);
+                      
+                        case 2: fruits3.addImage("fruit6", fruit6_img);
+                        break;
+                        case 1: fruits3.addImage("bestc", bestcard);
                         break;
                         
                         
