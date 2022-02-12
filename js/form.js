@@ -26,7 +26,7 @@ class Form{
         this.button.style('width', '200px');
         this.button.style('height', '40px');
         this.button.style('background', 'lightpink');
-        this.reset.position(width/1.3-width/2, height/2+300);
+        this.reset.position(width/1.6-width/2, height/2+300);
         this.reset.style('width', '100px');
         this.reset.style('height', '30px');
         this.reset.style('background', 'lightpink');
@@ -50,6 +50,8 @@ this.reset.show()
         this.reset.mousePressed(() => {
             player.updateCount(0);
             game.update(0);
+
+          button2.show()
         });
 
     }

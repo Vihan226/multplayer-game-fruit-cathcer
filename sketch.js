@@ -14,11 +14,16 @@ var player_img;
 var score, buttonhaspressed;
 var gamerefresh;
 var scoreg;
+var bullet1, bullet2, touch;
+var player2_img
+var button2;
 function preload(){
   back_img = loadImage("images/jungle.jpg");
-  player_img = loadImage("images/basket2.png");
+  player_img = loadImage("images/redplayer.png");
+  player2_img = loadImage("images/blueplayer.png");
   fruit1_img = loadImage("images/apple2.png");
   fruit2_img = loadImage("images/banana2.png");
+  
   fruit3_img = loadImage("images/melon2.png");
   fruit4_img = loadImage("images/orange2.png");
   fruit5_img = loadImage("images/pineapple2.png");
@@ -30,27 +35,30 @@ function setup() {
   createCanvas(1000, 600);
   database = firebase.database();
   game = new Game();
-button=createButton('s')
+button2=createButton('Start')
+button2.position(width/1-width/2, height/2)
 
 
 score=0
 buttonhaspressed=0
 gamerefresh=1700
 scoreg=0
+
 }
 
 function draw() {
   createCanvas(windowWidth, windowHeight)
   background('green');
   
-  button.mousePressed(()=>{
+  button2.mousePressed(()=>{
     games='play'
     game.getState();
     game.start();
+    button2.hide()
   })
 
   if(games==='play'){
-   
+   fill('white')
     textSize(50)
     text('Coins: '+score, width/1.6-width/2, height/2-100)
     
@@ -64,7 +72,7 @@ function draw() {
  
     if (gameState === 1) {
       clear(); 
-      background('black')
+      background('#647DE4')
       game.play();
 
 
@@ -85,8 +93,10 @@ function draw() {
      if(score==0){
        scoreg=0
      }
-      
-   
+
+     if(gamerefresh<1){
+       button2.show()
+     }
 
       if(gamerefresh<1&& scoreg==1){
         player.updateCount(0);

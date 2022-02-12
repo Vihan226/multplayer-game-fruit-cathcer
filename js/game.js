@@ -29,11 +29,12 @@ class Game{
 
 
            // createCanvas(windowWidth, windowHeight)
-    player1 = createSprite(width/1.9-width/2, height/2+400);
+    player1 = createSprite(width/1.9-width/2, height/2+500);
     player1.addImage("player1",player_img);
-    
+    player1.scale=.8
     player2 = createSprite(width/1-width/2, height/2+400);
-    player2.addImage("player2", player_img);
+    player2.addImage("player2", player2_img);
+    player2.scale=.8
     players=[player1,player2];
 
 
@@ -41,7 +42,9 @@ class Game{
     
     play(){
         
+        
                 form.hide();
+                fill('white')
                 textSize(40)
                 text('Coins: '+score, width/1.6-width/2, height/2-300)
                 textSize(18)
@@ -63,7 +66,7 @@ class Game{
                     
                      index = index+1;
                      x = 500-allPlayers[plr].distance;
-                     y=500;
+                     y=700;
                      
                      players[index -1].x = x;
                      players[index - 1].y = y;
@@ -71,8 +74,8 @@ class Game{
                     
                          
                          fill("black");
-                         textSize(20);
-                         text(allPlayers[plr].name ,x-25,y+25);
+                         textSize(15);
+                         text(allPlayers[plr].name ,x-35,y+30);
                          text(allPlayers[plr].amount, x-35, y+45);
 
                          
@@ -143,6 +146,9 @@ class Game{
                     fruit3Group.add(fruits3);
                     
                 }
+
+
+
                  
                   if (player.index !== null) {
                      if(player1.isTouching(fruitGroup)) {
@@ -153,6 +159,13 @@ class Game{
                          player.update();
                          score=score+1
                      }
+
+                  
+
+                     
+
+                     
+                     
                      if(player1.isTouching(fruit2Group)) {
                         fruitGroup.destroyEach();
                         fruit2Group.destroyEach();
@@ -201,7 +214,7 @@ class Game{
                 
 
          
-           
+        
         
          
 
