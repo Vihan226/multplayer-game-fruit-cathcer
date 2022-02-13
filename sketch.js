@@ -7,9 +7,9 @@ var games=null
 var player, form,game;
 var player1,player2;
 var players;
-var fruits, fruits2, fruits3;
-var fruitGroup, fruit2Group, fruit3Group, fruit4Group;
-var fruit1_img, fruit2_img, fruit3_img, fruit4_img, fruit5_img, fruit6_img;
+var fruits, fruits2, fruits3, fruits4;
+var fruitGroup, fruit2Group, fruit3Group, fruit4Group, fruitEGroup;
+var fruit1_img, fruit2_img, fruit3_img, fruit4_img, fruit5_img, fruit6_img, bullet1;
 var player_img;
 var score, buttonhaspressed;
 var gamerefresh;
@@ -33,9 +33,11 @@ function preload(){
   fruit5_img = loadImage("skin1part3.png");
 
   fruit6_img = loadImage("skin3part4.png");
+  bullet1=loadImage('Playerbullet.png')
   fruit2Group = new Group();
   fruit3Group = new Group();
   fruitGroup= new Group()
+  fruitEGroup= new Group()
 }
 function setup() {
   createCanvas(1000, 600);
@@ -156,7 +158,6 @@ score=0
       }
 
     
-
   
     }
     if (gameState === 2) {

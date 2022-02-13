@@ -119,7 +119,7 @@ class Game{
 
                  if (frameCount % 80 === 0) {
                     fruits2 = createSprite(random(100, 1000), 0, 100, 100);
-                    fruits2.velocityY = 6;
+                    fruits2.velocityY = 8;
                     fruits2.scale=.8
                     var rand = Math.round(random(1,2));
                     switch(rand){
@@ -136,7 +136,7 @@ class Game{
                 }
                 if (frameCount % 140 === 0) {
                     fruits3 = createSprite(random(100, 1000), 0, 100, 100);
-                    fruits3.velocityY = 6;
+                    fruits3.velocityY = 10;
                     fruits3.scale=.6
                     var rand = Math.round(random(1,1));
                     switch(rand){
@@ -151,6 +151,25 @@ class Game{
                         
                     }
                     fruit3Group.add(fruits3);
+                    
+                }
+                if (frameCount % 200 === 0) {
+                    fruits4 = createSprite(random(100, 1000), 0, 100, 100);
+                    fruits4.velocityY = 15;
+                   fruits4.scale=1
+                   fruits4.debug=false
+                    var rand = Math.round(random(1,1));
+                    switch(rand){
+                      
+                        
+                      
+                        
+                        case 1: fruits4.addImage("e", bullet1);
+                        break;
+                        
+                        
+                    }
+                    fruitEGroup.add(fruits4);
                     
                 }
 
@@ -168,7 +187,12 @@ class Game{
                          score=score+1
                      }
                  
-                  
+                  if(player.amount<0){
+                      score=-10
+                      fill('red')
+                      textSize(50)
+                      text('Your score Is less than 0.', width/1.2-width/2, height/2-300)
+                  }
          
 
 
@@ -188,6 +212,12 @@ class Game{
                         player.amount= player.amount+10;
                         player.update();
                         score=score+25
+                    }
+                    if(player1.isTouching(fruitEGroup)) {
+                       fruitEGroup.destroyEach()
+                       player.amount= player.amount-10;
+                        player.update();
+                     
                     }
 
 
@@ -215,6 +245,12 @@ class Game{
                         player.amount= player.amount+10;
                         player.update();
                         score=score+25
+                    }
+                    if(player2.isTouching(fruitEGroup)) {
+                       fruitEGroup.destroyEach()
+                       player.amount= player.amount-10;
+                       player.update();
+                     
                     }
                     
                   }
