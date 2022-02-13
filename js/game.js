@@ -156,8 +156,9 @@ class Game{
 
 
 
-                 
+            
                   if (player.index !== null) {
+                    
                      if(player1.isTouching(fruitGroup)) {
                          fruitGroup.destroyEach();
                          fruit2Group.destroyEach();
@@ -166,12 +167,11 @@ class Game{
                          player.update();
                          score=score+1
                      }
-
+                 
                   
+         
 
-                     
 
-                     
                      
                      if(player1.isTouching(fruit2Group)) {
                         fruitGroup.destroyEach();
@@ -216,6 +216,7 @@ class Game{
                         player.update();
                         score=score+25
                     }
+                    
                   }
 
                 

@@ -8,7 +8,7 @@ var player, form,game;
 var player1,player2;
 var players;
 var fruits, fruits2, fruits3;
-var fruitGroup, fruit2Group, fruit3Group;
+var fruitGroup, fruit2Group, fruit3Group, fruit4Group;
 var fruit1_img, fruit2_img, fruit3_img, fruit4_img, fruit5_img, fruit6_img;
 var player_img;
 var score, buttonhaspressed;
@@ -18,7 +18,8 @@ var bullet1, bullet2, touch;
 var player2_img
 var button2;
 var power;
-var bestcard
+var bestcard;
+var enemy1, enemy2, enemy;
 function preload(){
   back_img = loadImage("images/jungle.jpg");
   player_img = loadImage("images/redplayer.png");
@@ -61,6 +62,13 @@ function draw() {
     game.start();
     button2.hide()
   })
+  if(frameCount %10===0){
+    enemy1=createSprite(width/1.3-width/2, height/2-500, 10,40)
+    enemy1.x=Math.round(random(width/1.6-width/2, width/.8-width/2))
+    enemy1.shapeColor='white'
+    enemy1.velocityY=15
+   
+}
 
   if(games==='play'){
    fill('white')
@@ -77,10 +85,11 @@ function draw() {
  
     if (gameState === 1) {
       clear(); 
-      background('#647DE4')
+      background('black')
       game.play();
 
 
+          
   
       if(score>30&&score<65){
         scoreg=1
